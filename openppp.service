@@ -1,0 +1,13 @@
+[Unit]
+Description=ppp server
+Wants=network.target
+After=network.target network.service
+
+[Service]
+Type=simple
+WorkingDirectory=/root/openppp2
+ExecStart=/usr/bin/screen -dmS ppp-server /root/openppp2/start.sh
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
